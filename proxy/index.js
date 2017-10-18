@@ -192,7 +192,7 @@ function readRunner() {
     if (!reading) {
         var finishedSum = 0;
         for (var i = 0; i < readConcurrent; i++) {
-            setTimeout(function () {
+            setTimeout(function() {
                 transfer.read(function(error, data) {
                     // if (data.length > 0) {
                     //     console.log(data);
@@ -206,16 +206,15 @@ function readRunner() {
                     }
 
                     // if (++finishedSum >= readConcurrent) {
-                        setTimeout(function() {
-                            reading = false;
-                            readRunner();
-                        }, 100);
+                    setTimeout(function() {
+                        reading = false;
+                        readRunner();
+                    }, 100);
                     // }
 
                     // }
                 });
-            })
-
+            });
         }
     }
 }
@@ -232,7 +231,13 @@ function createProxy() {
             var srvUrl = url.parse(`https://${req.url}`);
             console.log(srvUrl.hostname, srvUrl.port);
 
-            if (srvUrl.hostname !== 'ulink.lifeapp.pingan.com.cn') {
+            if (
+                [
+                    'ulink.lifeapp.pingan.com.cn',
+                    'mili-shop.lifeapp.pingan.com.cn',
+                    'elis-ecocdn.pingan.com.cn'
+                ].indexOf(srvUrl.hostname) < 0
+            ) {
                 return;
             }
 
