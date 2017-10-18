@@ -1,0 +1,17 @@
+{
+  "name": "bluetooth-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node ./server/index.js",
+    "proxy": "node ./proxy/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bleno": "^0.4.2",
+    "deep-equal": "^1.0.1",
+    "noble": "^1.8.1"
+  }
+}
